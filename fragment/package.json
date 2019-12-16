@@ -1,0 +1,68 @@
+{
+  "name": "backoffice-container-web-front",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "env-cmd -f .env.local cross-env REACT_APP_ENV=local react-app-rewired start",
+    "start:dev": "env-cmd -f .env.dev cross-env REACT_APP_ENV=dev react-app-rewired start",
+    "start:prod": "env-cmd -f .env.prod cross-env REACT_APP_ENV=prod react-app-rewired start",
+    "start:docker": "docker-compose up --build",
+    "build:local": "env-cmd -f .env.local cross-env REACT_APP_ENV=local react-app-rewired build",
+    "build:dev": "env-cmd -f .env.dev cross-env REACT_APP_ENV=dev react-app-rewired build",
+    "build": "env-cmd -f .env.prod cross-env REACT_APP_ENV=prod react-app-rewired build",
+    "test": "react-scripts test",
+    "lint": "eslint ./src --fix"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "core-js": "^3.5.0",
+    "i18next": "^19.0.2",
+    "i18next-xhr-backend": "^3.2.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-i18next": "^11.2.6",
+    "react-scripts": "3.3.0",
+    "react-use": "^13.12.2",
+    "styled-components": "^4.4.1"
+  },
+  "devDependencies": {
+    "cross-env": "^6.0.3",
+    "env-cmd": "^10.0.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-jsx-a11y": "6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "7.17.0",
+    "eslint-plugin-react-hooks": "2.3.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "react-app-rewired": "^2.1.5"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

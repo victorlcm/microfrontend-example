@@ -1,0 +1,6 @@
+{
+  "eslint.workingDirectories": [
+    { "directory": "./container", "changeProcessCWD": true },
+    { "directory": "./fragment", "changeProcessCWD": true }
+  ]
+}

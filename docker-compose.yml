@@ -1,0 +1,20 @@
+version: "3"
+services:
+  container:
+    build:
+      dockerfile: Dockerfile
+      context: ./container
+    volumes:
+      - /app/node_modules
+      - ./container:/app
+    ports:
+      - "3000:3000"
+  fragment:
+    build:
+      dockerfile: Dockerfile
+      context: ./fragment
+    volumes:
+      - /app/node_modules
+      - ./fragment:/app
+    ports:
+      - "3001:3001"
